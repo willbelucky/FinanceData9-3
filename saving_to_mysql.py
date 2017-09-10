@@ -9,6 +9,7 @@ import stock_price
 import stock_trend
 from loading_from_mysql import *
 from mysql_supporter import local_engine
+from progress_bar import print_progress_bar
 
 
 def save_stock_master():
@@ -81,6 +82,9 @@ def save_stock_trend():
         stock_masters = get_stock_masters()
 
         # get all stock trends.
+        progress_bar_size = len(stock_masters)
+        progress_bar_count = 1
+        print_progress_bar(progress_bar_count, progress_bar_size, prefix='Progress:', suffix='Complete', length=50)
         for code, row in stock_masters.iterrows():
             existing_stock_trends = get_stock_trends(code)
             existing_stock_trends.sort_index(inplace=True)
@@ -94,7 +98,8 @@ def save_stock_trend():
                 stock_trends = stock_trend.get_krx_stock_trend(code)
 
             stock_trends.to_sql(schema_name, conn, if_exists='append', dtype={'code': types.VARCHAR(20)})
-            print("Scrapping {}, {} of {} is done.".format(schema_name, code, len(stock_trends)))
+            progress_bar_count += 1
+            print_progress_bar(progress_bar_count, progress_bar_size, prefix='Progress:', suffix='Complete', length=50)
 
     except IntegrityError:
         pass
@@ -131,6 +136,9 @@ def save_stock_price():
         # get all stock codes from the database.
         stock_masters = get_stock_masters()
 
+        progress_bar_size = len(stock_masters)
+        progress_bar_count = 1
+        print_progress_bar(progress_bar_count, progress_bar_size, prefix='Progress:', suffix='Complete', length=50)
         for code, row in stock_masters.iterrows():
             existing_stock_prices = get_stock_prices(code)
             existing_stock_prices.sort_index(inplace=True)
@@ -144,7 +152,8 @@ def save_stock_price():
                 stock_prices = stock_price.get_krx_stock_price(code)
 
             stock_prices.to_sql(schema_name, conn, if_exists='append', dtype={'code': types.VARCHAR(20)})
-            print("Scrapping {}, {} of {} is done.".format(schema_name, code, len(stock_prices)))
+            progress_bar_count += 1
+            print_progress_bar(progress_bar_count, progress_bar_size, prefix='Progress:', suffix='Complete', length=50)
 
     except IntegrityError:
         pass
