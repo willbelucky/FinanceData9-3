@@ -71,16 +71,15 @@ def get_krx_stock_trend(stock_code, start_date=datetime(1900, 1, 1), end_date=da
     }
 
     csv_str = requests.post(down_url, down_data).text
-    if csv_str[-1] != '"':  # KRX has a bug. Sometimes, last " is omitted.
-        csv_str += '"'
 
     # Remove the last row, which has sum.
-    stock_trends = pd.read_csv(io.StringIO(csv_str), thousands=',', parse_dates=['년/월/일'], skipfooter=1,
-                               engine='python')
+    csv_str = '\n'.join(csv_str.split('\n')[:-1])
 
     # Return empty DataFrame if stock_trends are empty.
-    if stock_trends.empty:
-        return stock_trends
+    if csv_str is "":
+        return pd.DataFrame()
+
+    stock_trends = pd.read_csv(io.StringIO(csv_str), thousands=',', parse_dates=['년/월/일'], engine='python')
 
     stock_trends = stock_trends[usecols]
     # Change column names.
