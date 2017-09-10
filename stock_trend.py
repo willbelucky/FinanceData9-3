@@ -1,10 +1,11 @@
 import io
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import pandas as pd
 import requests
 
 import code_converter
+from date_supporter import get_business_days
 
 columns_map = {'년/월/일': 'date', '종가': 'close', '거래량(주)': 'volume', '기관_매수량(주)': 'institutional_buy',
                '기관_매도량(주)': 'institutional_sell', '기관_순매수(주)': 'institutional_net_buy', '외국인_매수량(주)': 'foreign_buy',
@@ -47,6 +48,9 @@ def get_krx_stock_trend(stock_code, start_date=datetime(1900, 1, 1), end_date=da
                     foreign_net_buy         | int
                     code                    | object
     """
+    if len(get_business_days(start_date, datetime.today())) is 0:
+        return pd.DataFrame()
+
     # STEP 01: Generate OTP
     gen_otp_url = 'http://marketdata.krx.co.kr/contents/COM/GenerateOTP.jspx'
     gen_otp_data = {
