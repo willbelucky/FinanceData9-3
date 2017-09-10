@@ -49,7 +49,6 @@ def get_krx_stock_trend(stock_code, start_date=datetime(1900, 1, 1), end_date=da
                     code                    | object
     """
     if get_business_days(start_date, datetime.today()).empty:
-        print("returned")
         return pd.DataFrame()
 
     # STEP 01: Generate OTP
