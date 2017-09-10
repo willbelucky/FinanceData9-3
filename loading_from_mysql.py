@@ -62,6 +62,7 @@ def get_stock_prices(code=None):
     try:
         # get all stock codes from the database.
         stock_prices = pd.read_sql(select_sql, conn, parse_dates=['date'])
+        stock_prices.set_index('date', inplace=True)
 
     except exc.SQLAlchemyError:
         traceback.print_exc()
@@ -98,6 +99,7 @@ def get_stock_trends(code=None):
     try:
         # get all stock codes from the database.
         stock_trends = pd.read_sql(select_sql, conn, parse_dates=['date'])
+        stock_trends.set_index('date', inplace=True)
 
     except exc.SQLAlchemyError:
         traceback.print_exc()
@@ -109,6 +111,6 @@ def get_stock_trends(code=None):
 
 
 if __name__ == "__main__":
-    print(get_stock_masters().tail())
+    # print(get_stock_masters().tail())
     print(get_stock_prices().tail())
     print(get_stock_trends().tail())
