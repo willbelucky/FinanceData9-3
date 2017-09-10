@@ -1,0 +1,7 @@
+# Databases
+*.db
+*.sql
+*.sqlite
+
+# Logs
+*.log

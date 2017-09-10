@@ -3,8 +3,28 @@ import sqlite3
 import pandas as pd
 import io
 
+create_table_sql = """
+    CREATE TABLE IF NOT EXISTS stock_master (
+        code VARCHAR(20) NOT NULL PRIMARY KEY,
+        name VARCHAR(50),
+        sector_code VARCHAR(30),
+        sector VARCHAR(80)
+    )
+"""
+
 
 def get_krx_stock_master():
+    """
+    Get current korean stock masters by scrapping KRX.
+
+    :return stock_masters: DataFrame
+        index       code        | object with 6 length numbers.
+        columns     name        | object
+                    sector_code | object
+                    sector      | object
+                    telephone   | object
+                    address     | object
+    """
     # STEP 01: Generate OTP
     gen_otp_url = 'http://marketdata.krx.co.kr/contents/COM/GenerateOTP.jspx'
     gen_otp_data = {
@@ -33,14 +53,11 @@ def get_krx_stock_master():
     r = requests.post(down_url, down_data)
     f = io.BytesIO(r.content)
 
-    usecols = ['종목코드', '기업명', '업종코드', '업종', '대표전화', '주소']
-    df = pd.read_excel(f, converters={'종목코드': str, '업종코드': str}, usecols=usecols)
-    df.columns = ['code', 'name', 'sector_code', 'sector', 'telephone', 'address']
-    return df
+    usecols = ['종목코드', '기업명', '업종코드', '업종']
+    stock_masters = pd.read_excel(f, converters={'종목코드': str, '업종코드': str}, usecols=usecols)
+    stock_masters.columns = ['code', 'name', 'sector_code', 'sector']
 
+    # Change the index to code.
+    stock_masters.set_index('code', inplace=True)
 
-if __name__ == "__main__":
-    conn = sqlite3.connect('findata.db')
-    df = get_krx_stock_master()
-    df.to_sql('stock_master', conn, if_exists='replace')
-    conn.close()
+    return stock_masters
