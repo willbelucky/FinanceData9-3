@@ -1,5 +1,5 @@
 import io
-from datetime import datetime, timedelta
+from datetime import datetime
 
 import pandas as pd
 import requests
@@ -48,7 +48,8 @@ def get_krx_stock_trend(stock_code, start_date=datetime(1900, 1, 1), end_date=da
                     foreign_net_buy         | int
                     code                    | object
     """
-    if len(get_business_days(start_date, datetime.today())) is 0:
+    if get_business_days(start_date, datetime.today()).empty:
+        print("returned")
         return pd.DataFrame()
 
     # STEP 01: Generate OTP

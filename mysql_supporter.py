@@ -1,5 +1,6 @@
 import os
-from sqlalchemy import create_engine, exc, types
+
+from sqlalchemy import create_engine
 
 user = os.getenv('C9_USER')
 password = ''

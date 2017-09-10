@@ -1,7 +1,7 @@
-import requests
-import sqlite3
-import pandas as pd
 import io
+
+import pandas as pd
+import requests
 
 create_table_sql = """
     CREATE TABLE IF NOT EXISTS stock_master (
