@@ -5,6 +5,7 @@ import pandas as pd
 import requests
 
 import code_converter
+from date_supporter import get_business_days
 
 columns_map = {'년/월/일': 'date', '종가': 'close', '대비': 'change', '거래량(주)': 'volume', '거래대금(원)': 'trading_value',
                '시가': 'open', '고가': 'high', '저가': 'low', '시가총액(백만)': 'mar_cap', '상장주식수(주)': 'stock_count'}
@@ -39,6 +40,9 @@ def get_krx_stock_price(stock_code, start_date=datetime(1900, 1, 1), end_date=da
                     volume  | int
                     code    | object
     """
+    if get_business_days(start_date, datetime.today()).empty:
+        return pd.DataFrame()
+
     start_str = start_date.strftime("%Y%m%d")
     end_str = end_date.strftime("%Y%m%d")
 
