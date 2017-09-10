@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbc04b2b-bb66-4826-87a7-5ad8ee09e5bd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/preferred-vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/loading_from_mysql.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mysql_supporter.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pandas_expansion.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/saving_to_mysql.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/stock_price.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/findata.db" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/FinanceData9-3.iml" afterPath="$PROJECT_DIR$/.idea/FinanceData9-3.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stock_master.py" afterPath="$PROJECT_DIR$/stock_master.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stock_trend.py" afterPath="$PROJECT_DIR$/stock_trend.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saving_to_mysql.py" afterPath="$PROJECT_DIR$/saving_to_mysql.py" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,7 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/FinanceData9_3$saving_to_mysql.coverage" NAME="saving_to_mysql Coverage Results" MODIFIED="1505011758956" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FinanceData9_3$saving_to_mysql.coverage" NAME="saving_to_mysql Coverage Results" MODIFIED="1505019182998" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/FinanceData9_3$stock_master.coverage" NAME="stock_master Coverage Results" MODIFIED="1504769249524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/FinanceData9_3$stock_price.coverage" NAME="stock_price Coverage Results" MODIFIED="1504766492867" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/FinanceData9_3$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1504838358788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Library/Python/3.6/lib/python/site-packages/mysql/connector" />
@@ -38,10 +26,22 @@
       <file leaf-file-name="saving_to_mysql.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/saving_to_mysql.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="132" column="0" lean-forward="true" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+            <state relative-caret-position="-441">
+              <caret line="96" column="50" lean-forward="false" selection-start-line="96" selection-start-column="50" selection-end-line="96" selection-end-column="50" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mysql_supporter.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mysql_supporter.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -83,12 +83,12 @@
         <option value="$PROJECT_DIR$/code_converter.py" />
         <option value="$USER_HOME$/Library/Python/3.6/lib/python/site-packages/mysql/connector/__init__.py" />
         <option value="$PROJECT_DIR$/mysql.py" />
-        <option value="$PROJECT_DIR$/mysql_supporter.py" />
         <option value="$PROJECT_DIR$/stock_master.py" />
         <option value="$PROJECT_DIR$/pandas_expansion.py" />
         <option value="$PROJECT_DIR$/stock_trend.py" />
         <option value="$PROJECT_DIR$/stock_price.py" />
         <option value="$PROJECT_DIR$/loading_from_mysql.py" />
+        <option value="$PROJECT_DIR$/mysql_supporter.py" />
         <option value="$PROJECT_DIR$/saving_to_mysql.py" />
       </list>
     </option>
@@ -179,7 +179,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.loading_from_mysql">
+  <component name="RunManager" selected="Python.saving_to_mysql">
     <configuration name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -298,8 +298,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.loading_from_mysql" />
-        <item index="1" class="java.lang.String" itemvalue="Python.saving_to_mysql" />
+        <item index="0" class="java.lang.String" itemvalue="Python.saving_to_mysql" />
+        <item index="1" class="java.lang.String" itemvalue="Python.loading_from_mysql" />
         <item index="2" class="java.lang.String" itemvalue="Python.__init__" />
         <item index="3" class="java.lang.String" itemvalue="Python.stock_master" />
         <item index="4" class="java.lang.String" itemvalue="Python.stock_price" />
@@ -323,6 +323,14 @@
       <option name="presentableId" value="Default" />
       <updated>1503921936698</updated>
     </task>
+    <task id="LOCAL-00001" summary="1. Scrape data after last scrapped date.&#10;2. Scrape all stock_master and get difference of sets from existing date.&#10;3. Save them in MySQL&#10;4. Get data from MySQL">
+      <created>1505012616224</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1505012616224</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -343,9 +351,9 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28249744" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28249744" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3285568" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285568" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27106228" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -369,6 +377,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1. Scrape data after last scrapped date.&#10;2. Scrape all stock_master and get difference of sets from existing date.&#10;3. Save them in MySQL&#10;4. Get data from MySQL" />
+    <option name="LAST_COMMIT_MESSAGE" value="1. Scrape data after last scrapped date.&#10;2. Scrape all stock_master and get difference of sets from existing date.&#10;3. Save them in MySQL&#10;4. Get data from MySQL" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -629,16 +641,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mysql_supporter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/pandas/core/indexing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -745,10 +747,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mysql_supporter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/saving_to_mysql.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="132" column="0" lean-forward="true" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+        <state relative-caret-position="-441">
+          <caret line="96" column="50" lean-forward="false" selection-start-line="96" selection-start-column="50" selection-end-line="96" selection-end-column="50" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
           </folding>

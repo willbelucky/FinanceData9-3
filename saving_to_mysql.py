@@ -81,7 +81,6 @@ def save_stock_trend():
         stock_masters = get_stock_masters()
 
         # get all stock trends.
-        stock_trends = pd.DataFrame()
         for code, row in stock_masters.iterrows():
             existing_stock_trends = get_stock_trends(code)
             existing_stock_trends.sort_index(inplace=True)
@@ -89,12 +88,13 @@ def save_stock_trend():
                 # If we already have old data, we get data after the last date.
                 last_date = existing_stock_trends.iloc[-1]['date']
                 start_date = last_date + timedelta(days=1)
-                stock_trends = stock_trends.append(stock_trend.get_krx_stock_trend(code, start_date=start_date))
+                stock_trends = stock_trend.get_krx_stock_trend(code, start_date=start_date)
             else:
                 # If there is no data, we get all data.
-                stock_trends = stock_trends.append(stock_trend.get_krx_stock_trend(code))
+                stock_trends = stock_trend.get_krx_stock_trend(code)
 
-        stock_trends.to_sql(schema_name, conn, if_exists='append', dtype={'code': types.VARCHAR(20)})
+            stock_trends.to_sql(schema_name, conn, if_exists='append', dtype={'code': types.VARCHAR(20)})
+            print("Scrapping {}, {} of {} is done.".format(schema_name, code, len(stock_trends)))
 
     except IntegrityError:
         pass
@@ -104,7 +104,7 @@ def save_stock_trend():
 
     finally:
         conn.close()
-        print("Scrapping {} of {} is done!!".format(schema_name, len(stock_trends)))
+        print("Scrapping {} is done!!".format(schema_name))
 
 
 def save_stock_price():
@@ -131,7 +131,6 @@ def save_stock_price():
         # get all stock codes from the database.
         stock_masters = get_stock_masters()
 
-        stock_prices = pd.DataFrame()
         for code, row in stock_masters.iterrows():
             existing_stock_prices = get_stock_prices(code)
             existing_stock_prices.sort_index(inplace=True)
@@ -139,12 +138,13 @@ def save_stock_price():
                 # If we already have old data, we get data after the last date.
                 last_date = existing_stock_prices.iloc[-1]['date']
                 start_date = last_date + timedelta(days=1)
-                stock_prices = stock_prices.append(stock_price.get_krx_stock_price(code, start_date=start_date))
+                stock_prices = stock_price.get_krx_stock_price(code, start_date=start_date)
             else:
                 # If there is no data, we get all data.
-                stock_prices = stock_prices.append(stock_price.get_krx_stock_price(code))
+                stock_prices = stock_price.get_krx_stock_price(code)
 
-        stock_prices.to_sql(schema_name, conn, if_exists='append', dtype={'code': types.VARCHAR(20)})
+            stock_prices.to_sql(schema_name, conn, if_exists='append', dtype={'code': types.VARCHAR(20)})
+            print("Scrapping {}, {} of {} is done.".format(schema_name, code, len(stock_prices)))
 
     except IntegrityError:
         pass
@@ -154,7 +154,7 @@ def save_stock_price():
 
     finally:
         conn.close()
-        print("Scrapping {} of {} is done!!".format(schema_name, len(stock_prices)))
+        print("Scrapping {} is done!!".format(schema_name))
 
 
 if __name__ == "__main__":
