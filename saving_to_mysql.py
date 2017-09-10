@@ -86,7 +86,7 @@ def save_stock_trend():
             existing_stock_trends.sort_index(inplace=True)
             if len(existing_stock_trends) is not 0:
                 # If we already have old data, we get data after the last date.
-                last_date = existing_stock_trends.iloc[-1]['date']
+                last_date = existing_stock_trends.last_valid_index()
                 start_date = last_date + timedelta(days=1)
                 stock_trends = stock_trend.get_krx_stock_trend(code, start_date=start_date)
             else:
@@ -136,7 +136,7 @@ def save_stock_price():
             existing_stock_prices.sort_index(inplace=True)
             if len(existing_stock_prices) is not 0:
                 # If we already have old data, we get data after the last date.
-                last_date = existing_stock_prices.iloc[-1]['date']
+                last_date = existing_stock_prices.last_valid_index()
                 start_date = last_date + timedelta(days=1)
                 stock_prices = stock_price.get_krx_stock_price(code, start_date=start_date)
             else:
