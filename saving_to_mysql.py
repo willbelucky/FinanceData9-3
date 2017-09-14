@@ -11,6 +11,8 @@ from loading_from_mysql import *
 from mysql_supporter import local_engine
 from progress_bar import print_progress_bar
 
+import time
+
 
 def save_stock_master():
     """
@@ -167,6 +169,9 @@ def save_stock_price():
 
 
 if __name__ == "__main__":
+    start = time.time()
     save_stock_master()
     save_stock_trend()
     save_stock_price()
+    end = time.time()
+    print("It takes {} seconds".format(end - start))
