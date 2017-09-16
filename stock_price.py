@@ -25,7 +25,7 @@ create_table_sql = """CREATE TABLE IF NOT EXISTS `stock_price` (
 
 def get_krx_stock_price(stock_code, start_date=datetime(1900, 1, 1), end_date=datetime(2100, 1, 1)):
     """
-    Getting korean stock prices from start to end by scrapping KRX.
+    Getting korean stock prices from start_date to end_date by scrapping KRX.
 
     :param stock_code: string with 6 length number.
     :param start_date: datetime
